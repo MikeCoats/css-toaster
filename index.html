@@ -29,23 +29,33 @@
           padding: 0;
           margin-top: 0;
           border-width: 0;
-          animation-duration: 10s;
-          animation-name: toast;
         }
         toaster toast * + * {
           margin-left: 16px;
         }
-        toaster toast.info {
+        toaster toast.info,
+        toaster toast.info * {
           background: rgb(192, 192, 255);
+          animation-duration: 5s;
+          animation-name: infoToast;
         }
-        toaster toast.success {
+        toaster toast.success,
+        toaster toast.success * {
           background: rgb(192, 255, 192);
+          animation-duration: 5s;
+          animation-name: infoToast;
         }
-        toaster toast.warning {
+        toaster toast.warning,
+        toaster toast.warning * {
           background: rgb(255, 255, 192);
+          animation-duration: 10s;
+          animation-name: warningToast;
         }
-        toaster toast.error {
+        toaster toast.error,
+        toaster toast.error * {
           background: rgb(255, 192, 192);
+          animation-duration: 20s;
+          animation-name: errorToast;
         }
         toaster toast .icon {
           min-width: 64px;
@@ -56,7 +66,45 @@
           text-align: justify;
         }
   
-        @keyframes toast {
+        @keyframes infoToast {
+          from {
+            opacity: 0;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          20% {
+            opacity: 1;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          80% {
+            opacity: 1;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          99% {
+            opacity: 0;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          to {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            margin-top: 0;
+            border-width: 0;
+          }
+        }
+
+        @keyframes warningToast {
           from {
             opacity: 0;
             height: initial;
@@ -72,6 +120,44 @@
             border-width: 1px;
           }
           90% {
+            opacity: 1;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          99% {
+            opacity: 0;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          to {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            margin-top: 0;
+            border-width: 0;
+          }
+        }
+
+        @keyframes errorToast {
+          from {
+            opacity: 0;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          5% {
+            opacity: 1;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          95% {
             opacity: 1;
             height: initial;
             padding: 8px;
