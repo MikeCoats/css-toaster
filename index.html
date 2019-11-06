@@ -1,0 +1,267 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this file,
+  you can obtain one at https://mozilla.org/MPL/2.0/. -->
+  <html>
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <style>
+        toaster {
+          position: fixed;
+          top: 0px;
+          width: 67%;
+          left: calc(50% - (67% / 2));
+          display: flex;
+          flex-direction: column;
+        }
+        toaster toast {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          border-radius: 8px;
+          border-style: solid;
+          border-color: rgb(128, 128, 128);
+          border-width: 0;
+        }
+        toaster toast,
+        toaster toast * {
+          height: 0;
+          opacity: 0;
+          padding: 0;
+          margin-top: 0;
+          border-width: 0;
+          animation-duration: 10s;
+          animation-name: toast;
+        }
+        toaster toast * + * {
+          margin-left: 16px;
+        }
+        toaster toast.info {
+          background: rgb(192, 192, 255);
+        }
+        toaster toast.success {
+          background: rgb(192, 255, 192);
+        }
+        toaster toast.warning {
+          background: rgb(255, 255, 192);
+        }
+        toaster toast.error {
+          background: rgb(255, 192, 192);
+        }
+        toaster toast .icon {
+          min-width: 64px;
+          max-height: 64px;
+        }
+        toaster toast .message {
+          font-size: 24px;
+          text-align: justify;
+        }
+  
+        @keyframes toast {
+          from {
+            opacity: 0;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          10% {
+            opacity: 1;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          90% {
+            opacity: 1;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          99% {
+            opacity: 0;
+            height: initial;
+            padding: 8px;
+            margin-top: 8px;
+            border-width: 1px;
+          }
+          to {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            margin-top: 0;
+            border-width: 0;
+          }
+        }
+      </style>
+      <style>
+        main {
+          max-width: 960px;
+          margin-left: auto;
+          margin-right: auto;
+          display: grid;
+          grid-template-columns: min-content 1fr;
+          grid-auto-rows: min-content;
+          grid-gap: 1rem;
+          grid-template-areas: ". title" "nav article" "footer footer";
+        }
+  
+        h1 {
+          grid-area: title;
+        }
+  
+        article {
+          grid-area: article;
+        }
+  
+        nav {
+          grid-area: nav;
+        }
+  
+        nav ul li {
+          white-space: nowrap;
+        }
+  
+        footer {
+          grid-area: footer;
+        }
+  
+        section.demonstration {
+          background: rgb(192, 192, 192);
+          padding: 16px;
+        }
+  
+        .controls {
+          display: grid;
+          grid-template-columns: min-content 1fr min-content;
+          grid-gap: 16px;
+        }
+      </style>
+    </head>
+    <body>
+      <toaster>
+        <toast class="info">
+          <img class="icon" src="info.png" />
+          <span class="message">This is an information toast.</span>
+        </toast>
+        <toast class="success">
+          <img class="icon" src="success.png" />
+          <span class="message">This is a success toast.</span>
+        </toast>
+        <toast class="warning">
+          <img class="icon" src="warning.png" />
+          <span class="message">This is a warning toast.</span>
+        </toast>
+        <toast class="error">
+          <img class="icon" src="error.png" />
+          <span class="message">This is an error toast.</span>
+        </toast>
+      </toaster>
+      <main>
+        <h1>Pure CSS Toast Demonstration</h1>
+        <article>
+          <section>
+            <h2>Some placeholder text</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              mollis enim magna, vel commodo odio fringilla et. Maecenas luctus
+              libero ex, et fringilla arcu congue in. Phasellus nisl sapien,
+              varius at orci ut, cursus pretium erat. Proin eget aliquam libero,
+              et ornare magna. Etiam posuere elit sit amet arcu euismod, sed
+              tincidunt odio rutrum. Donec enim mauris, auctor sed semper eu,
+              fringilla vitae lorem. Ut efficitur mauris a venenatis auctor. In
+              hac habitasse platea dictumst. Ut nibh risus, venenatis in porta
+              vel, semper eget lorem. Maecenas ut accumsan ex, a sagittis sapien.
+              Sed volutpat varius venenatis. Nunc bibendum eget lorem a consequat.
+              Mauris iaculis lorem id purus mollis bibendum. Praesent vestibulum
+              ligula eu libero consequat porttitor.
+            </p>
+          </section>
+          <section>
+            <h2>More placeholder text</h2>
+            <p>
+              Donec venenatis eros ut volutpat suscipit. Duis lacus diam, sagittis
+              vel feugiat sit amet, ornare in mauris. Pellentesque maximus at leo
+              eget finibus. Sed dui enim, sodales vel dapibus in, cursus nec
+              neque. Etiam imperdiet euismod risus non mattis. Donec dapibus lacus
+              id orci posuere interdum. In efficitur, nibh vitae tincidunt
+              aliquet, lectus est tempor libero, ut interdum ex metus in nisl.
+              Maecenas eget enim erat. Suspendisse pulvinar libero eros, eget
+              maximus libero finibus rutrum. Nam dapibus, ex ut mollis
+              scelerisque, justo velit tempor felis, eget laoreet mauris erat a
+              ligula. Etiam ac mattis nisl, at ullamcorper neque.
+            </p>
+  
+            <p>
+              Fusce orci nisi, fringilla vel ligula euismod, dapibus fermentum
+              ligula. Donec lacinia lacus leo. Mauris vulputate et quam vel
+              placerat. Sed vehicula erat ac sem congue finibus. Phasellus ipsum
+              tortor, mollis eget nisi sed, pellentesque euismod metus. Curabitur
+              at fermentum nunc. Donec lacinia lorem arcu, in facilisis sapien
+              faucibus ut. Aliquam facilisis purus tellus, non gravida elit
+              convallis semper. Etiam volutpat, quam at venenatis rhoncus, sem
+              erat venenatis augue, ac pharetra enim tellus non arcu. Vestibulum
+              sem purus, auctor ac ornare eu, dapibus id justo. In feugiat
+              elementum enim a dapibus.
+            </p>
+  
+            <p>
+              Vivamus eget nisl sed ligula semper scelerisque eu vel tellus.
+              Phasellus nec nunc ornare, fringilla ligula sed, convallis justo.
+              Integer vehicula lacinia dolor, a rhoncus mauris tincidunt a.
+              Suspendisse eu libero diam. Vivamus nec nunc in arcu pharetra
+              dictum. Donec lorem orci, efficitur eget lorem a, faucibus porta
+              nulla. Vestibulum cursus fringilla sapien eget hendrerit. Aenean sit
+              amet leo nec quam aliquet dictum nec eu leo. Quisque commodo, neque
+              quis tempus pellentesque, purus odio varius velit, vel maximus eros
+              ipsum porttitor mi. Nulla facilisi.
+            </p>
+  
+            <p>
+              Etiam at commodo nunc. Donec sed egestas dolor. Proin et neque
+              ligula. Ut vel eros ut lorem ullamcorper feugiat. Nulla faucibus
+              nulla sed tellus faucibus porta. Quisque id ex ornare, laoreet diam
+              id, dignissim metus. Nulla dictum sollicitudin arcu, ac porta nibh
+              commodo vel. Donec cursus tempus quam, eget placerat metus
+              ullamcorper id. Cras tempus a nulla non pretium. Mauris dolor orci,
+              tempus a purus id, fermentum fermentum magna. Phasellus viverra
+              velit quis ipsum sagittis aliquet. Donec ac ex accumsan metus
+              gravida ultricies vitae a tortor. Integer ac ante mauris. Proin et
+              ex vel justo consectetur lobortis.
+            </p>
+          </section>
+        </article>
+        <nav>
+          <ul>
+            <li>Lorem Ipsum</li>
+            <li>Dolor Sit Amet</li>
+            <li>Consectetur</li>
+            <li>Adipiscing Elit</li>
+            <li>Donec Mollis</li>
+            <li>Enim Magna</li>
+            <li>Vel Commodo Odio</li>
+          </ul>
+        </nav>
+        <footer>
+          <p>
+            Pure CSS Toast &copy; 2019, Mike Coats; available under the
+            <a href="https://www.mozilla.org/en-US/MPL/"
+              >Mozilla Public License, v. 2.0</a
+            >.
+          </p>
+          <p>
+            <a href="https://icons8.com/icon/42817/info">Info</a>,
+            <a href="https://icons8.com/icon/42836/ok">Success</a>,
+            <a href="https://icons8.com/icon/42801/error">Warning</a> and
+            <a href="https://icons8.com/icon/42781/cancel">Error</a> icons by
+            <a href="https://icons8.com/license/">icons8</a> available under the
+            <a href="https://creativecommons.org/licenses/by-nd/3.0/"
+              >Creative Commons Attribution-NoDerivs 3.0 Unported</a
+            >
+            license.
+          </p>
+        </footer>
+      </main>
+    </body>
+  </html>
+  
